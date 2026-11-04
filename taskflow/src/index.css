@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.claro {
+  --fundo: #eef2f8;
+  --painel: #ffffff;
+  --texto: #182338;
+  --secundario: #64748b;
+  --destaque: #4f46e5;
+  --texto-botao: #ffffff;
+  --borda: #dce3ef;
+  --campo: #f8fafc;
+  --perigo: #b91c1c;
+}
+
+.escuro {
+  --fundo: #0f172a;
+  --painel: #1e293b;
+  --texto: #f1f5f9;
+  --secundario: #a8b6ca;
+  --destaque: #a5b4fc;
+  --texto-botao: #17203b;
+  --borda: #3b4960;
+  --campo: #162033;
+  --perigo: #fca5a5;
+}
+
+.claro,
+.escuro {
+  min-height: 100vh;
+  padding: 64px 20px;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+.taskflow {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 36px;
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  box-shadow: 0 16px 48px rgb(0 0 0 / 10%);
+}
+
+.taskflow h1 {
+  margin: 0 0 24px;
+  font-size: 36px;
+  letter-spacing: -1.5px;
+}
+
+button {
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--destaque);
+  color: var(--texto-botao);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 3px;
+}
+
+.taskflow form {
+  display: flex;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: var(--campo);
+  color: var(--texto);
+}
+
+input::placeholder {
+  color: var(--secundario);
+}
+
+.taskflow p {
+  color: var(--secundario);
+  line-height: 1.5;
+}
+
+.taskflow ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+
+.taskflow li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+.taskflow li:last-child {
+  border-bottom: none;
+}
+
+.taskflow li span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 14px 22px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--painel);
+  color: var(--texto);
+  box-shadow: 0 8px 30px rgb(0 0 0 / 20%);
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .claro,
+  .escuro {
+    padding: 24px 12px;
+  }
+
+  .taskflow {
+    padding: 24px 18px;
+  }
+
+  .taskflow form {
+    flex-direction: column;
+  }
+
+  .taskflow li {
+    flex-wrap: wrap;
+  }
+
+  .taskflow li span {
+    flex-basis: 100%;
+  }
+}
